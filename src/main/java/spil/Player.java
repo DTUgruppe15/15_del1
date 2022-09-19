@@ -25,7 +25,7 @@ public class Player {
     }
 
     public boolean getIsSame(){
-        if(die1 == die2){
+        if(die1.getDie() == die2.getDie()){
             return true;
         }else{
             return false;
