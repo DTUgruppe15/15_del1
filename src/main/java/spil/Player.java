@@ -2,7 +2,7 @@ package spil;
 
 public class Player {
 
-    private  int points;
+    private int points;
 
     Die die1 = new Die();
     Die die2 = new Die();
@@ -30,5 +30,9 @@ public class Player {
         }else{
             return false;
         }
+    }
+
+    public void addPoints(int points){
+        this.points += points;
     }
 }
