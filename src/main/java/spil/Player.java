@@ -32,6 +32,15 @@ public class Player {
         }
     }
 
+    //This checks if the two dice are both six
+    public boolean getIsTwoSix(){
+        if(die1.getDie() == 6 && die2.getDie() == 6){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public void addPoints(int points){
         this.points += points;
     }
