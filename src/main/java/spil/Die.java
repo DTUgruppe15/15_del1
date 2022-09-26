@@ -3,7 +3,7 @@ package spil;
 import java.util.Random;
 
 public class Die {
-    int die;
+    private int die;
 
     public void setDie(int die) {
         this.die = die;
