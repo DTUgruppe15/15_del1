@@ -62,7 +62,5 @@ public class ChanceOfValue {
         }
 
         System.out.printf("Chance for double: %.2f theory: %.2f", ((double) numOfDouble/numOfRolls*100), theoryDouble);
-
-
     }
 }
