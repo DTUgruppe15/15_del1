@@ -22,7 +22,11 @@ public class Spil {
                     player1.setPoints(0);
                     System.out.println("Player 1's points get reset to 0!");
                 }
-                playerTurn = 2;
+                if (!player1.getIsSame()) { //This checks if player 1 hit to of the same dice, and gives player 1 another turn, if they did
+                    playerTurn = 2;
+                }else{
+                    System.out.println("Player 2 gets extra turn.");
+                }
             } else {
                 player2.rollDice();
                 gui.setDice(player2.die1.getDie(), player2.die2.getDie());
@@ -31,7 +35,11 @@ public class Spil {
                     player2.setPoints(0);
                     System.out.println("Player 2's points get reset to 0!");
                 }
-                playerTurn = 1;
+                if (!player2.getIsSame()) { //This checks if player 2 hit to of the same dice, and gives player 2 another turn, if they did
+                    playerTurn = 1;
+                }else{
+                    System.out.println("Player 2 gets extra turn.");
+                }
             }
             if (player1.getPoints() >= 40) {
                 System.out.println("Player 1 wins");
