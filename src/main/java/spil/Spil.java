@@ -14,7 +14,7 @@ public class Spil {
 
         while (true) {
             boolean clickRoll = gui.getUserLeftButtonPressed("Click for roll player: " + playerTurn, "Yes", "Yes");
-            if (playerTurn == 1) {
+            if (playerTurn == 1 && player1.getPoints()<40) {
                 player1.rollDice();
                 gui.setDice(player1.die1.getDie(), player1.die2.getDie());
                 player1.addPoints(player1.getSum());
@@ -25,7 +25,7 @@ public class Spil {
                 if (!player1.getIsSame()) { //This checks if player 1 hit to of the same dice, and gives player 1 another turn, if they did
                     playerTurn = 2;
                 }else{
-                    System.out.println("Player 2 gets extra turn.");
+                    System.out.println("Player 1 gets extra turn.");
                 }
                 if(player1.getIsTwoSix()){
                     if(player1.isLastTwoSix()){
@@ -34,7 +34,7 @@ public class Spil {
                         player1.setLastTwoSix(true);
                     }
                 }
-            } else {
+            } else if(playerTurn == 2 && player2.getPoints()<40){
                 player2.rollDice();
                 gui.setDice(player2.die1.getDie(), player2.die2.getDie());
                 player2.addPoints(player2.getSum());
@@ -56,13 +56,31 @@ public class Spil {
                 }
             }
             if (player1.getPoints() >= 40) {
-                System.out.println("Player 1 wins");
-                gui.showMessage("Player 1 wins");
-                break;
+                player1.rollDice();
+                gui.setDice(player1.die1.getDie(), player1.die2.getDie());
+                if(player1.getIsTwoOne()){
+                    player1.setPoints(0);
+                }else if(player1.getIsSame()) {
+                    System.out.println("Player 1 wins");
+                    gui.showMessage("Player 1 wins");
+                    break;
+                }else{
+                    System.out.println("Player needs to roll two of the same to win");
+                    playerTurn = 2;
+                }
             } else if (player2.getPoints() >= 40) {
-                System.out.println("Player 2 wins");
-                gui.showMessage("Player 2 wins");
-                break;
+                player2.rollDice();
+                gui.setDice(player2.die1.getDie(), player2.die2.getDie());
+                if(player2.getIsTwoOne()){
+                    player2.setPoints(0);
+                }else if(player2.getIsSame()) {
+                    System.out.println("Player 2 wins");
+                    gui.showMessage("Player 2 wins");
+                    break;
+                }else{
+                    System.out.println("Player needs to roll two of the same to win");
+                    playerTurn = 1;
+                }
             }
 
             System.out.println("player 1: " + player1.getPoints());
