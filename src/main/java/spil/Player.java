@@ -3,6 +3,15 @@ package spil;
 public class Player {
 
     private int points;
+    private boolean IsLastTwoSix;
+
+    public boolean isLastTwoSix() {
+        return IsLastTwoSix;
+    }
+
+    public void setLastTwoSix(boolean lastTwoSix) {
+        IsLastTwoSix = lastTwoSix;
+    }
 
     Die die1 = new Die();
     Die die2 = new Die();
@@ -34,6 +43,10 @@ public class Player {
     //This checks if the two dice are both ones
     public boolean getIsTwoOne() {
         return die1.getDie() == 1 && die2.getDie() == 1;
+    }
+
+    public boolean getIsTwoSix(){
+        return die1.getDie() == 6 && die2.getDie() == 6;
     }
 
     public void addPoints(int points){

@@ -27,6 +27,13 @@ public class Spil {
                 }else{
                     System.out.println("Player 2 gets extra turn.");
                 }
+                if(player1.getIsTwoSix()){
+                    if(player1.isLastTwoSix()){
+                        player1.setPoints(100);
+                    }else{
+                        player1.setLastTwoSix(true);
+                    }
+                }
             } else {
                 player2.rollDice();
                 gui.setDice(player2.die1.getDie(), player2.die2.getDie());
@@ -39,6 +46,13 @@ public class Spil {
                     playerTurn = 1;
                 }else{
                     System.out.println("Player 2 gets extra turn.");
+                }
+                if(player2.getIsTwoSix()){
+                    if(player2.isLastTwoSix()){
+                        player2.setPoints(100);
+                    }else{
+                        player2.setLastTwoSix(true);
+                    }
                 }
             }
             if (player1.getPoints() >= 40) {
