@@ -18,10 +18,20 @@ public class Spil {
                 player1.rollDice();
                 gui.setDice(player1.die1.getDie(), player1.die2.getDie());
                 player1.addPoints(player1.getSum());
+                if (player1.getIsTwoOne()) { //This checks if player 1 rolled two ones, and then resets player 1's points to 0, if player 1 did
+                    player1.setPoints(0);
+                    System.out.println("Player 1's points get reset to 0!");
+                }
+                playerTurn = 2;
             } else {
                 player2.rollDice();
                 gui.setDice(player2.die1.getDie(), player2.die2.getDie());
                 player2.addPoints(player2.getSum());
+                if (player2.getIsTwoOne()) { //This checks if player 2 rolled two ones, and then resets player 2's points to 0, if player 1 did
+                    player2.setPoints(0);
+                    System.out.println("Player 2's points get reset to 0!");
+                }
+                playerTurn = 1;
             }
             if (player1.getPoints() >= 40) {
                 System.out.println("Player 1 wins");

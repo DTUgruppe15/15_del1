@@ -31,6 +31,11 @@ public class Player {
         return die1.getDie() == die2.getDie();
     }
 
+    //This checks if the two dice are both ones
+    public boolean getIsTwoOne() {
+        return die1.getDie() == 1 && die2.getDie() == 1;
+    }
+
     public void addPoints(int points){
         this.points += points;
     }
